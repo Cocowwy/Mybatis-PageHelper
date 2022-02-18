@@ -36,6 +36,7 @@ import java.util.Properties;
  * @author liuzh
  */
 public abstract class PageMethod {
+    // 在你的业务代码里，保存当前线程的分页参数
     protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
     protected static boolean DEFAULT_COUNT = true;
 

@@ -45,6 +45,9 @@ import java.util.List;
 import java.util.Properties;
 
 /**
+ *
+ *   拦截器，会在调用mapper的时候执行执行器的逻辑
+ *
  * Mybatis - 通用分页拦截器
  * <p>
  * GitHub: https://github.com/pagehelper/Mybatis-PageHelper
@@ -89,6 +92,11 @@ public class PageInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         try {
+            /**
+             * invocation 保存了一些这个SQL的一些相关信息
+             *  如当前mapper的xml文件名  执行的 SQL 所映射的 mapping的值 等等
+             *  resultMap等信息
+             */
             Object[] args = invocation.getArgs();
             MappedStatement ms = (MappedStatement) args[0];
             Object parameter = args[1];
