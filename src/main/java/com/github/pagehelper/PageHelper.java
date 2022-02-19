@@ -64,6 +64,7 @@ public class PageHelper extends PageMethod implements Dialect, BoundSqlIntercept
         } else {
             //设置默认的 count 列
             if (StringUtil.isEmpty(page.getCountColumn())) {
+                // 默认是 "0"  即 count(0)
                 page.setCountColumn(pageParams.getCountColumn());
             }
             autoDialect.initDelegateDialect(ms, page.getDialectClass());
